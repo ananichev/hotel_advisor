@@ -67,9 +67,9 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
-  line-height: 1;   /* толщина самой линии */
+  line-height: 1;
   &:hover {
-    color: blue;
+    color: gray;
     text-decoration: none;
   }
 }
@@ -83,8 +83,8 @@ footer {
   	float:left;
   }
   ul{
-    float: right; 	/* выравнивание по правому краю */
-    list-style: none;  /* чтобы убрать точки возле списка */
+    float: right;
+    list-style: none;
     li{
       float:left;
       margin-left:10px;
@@ -123,11 +123,6 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -147,7 +142,7 @@ input {
   }
 }
 
-.field_with_errors {          /* подсветка полей с ошибками */
+.field_with_errors {    
   @extend .control-group;
   @extend .error;
 }
