@@ -8,6 +8,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'haml-rails'
 gem 'faker', '1.1.2'
+gem 'simple_form'
 
 
 # Use sqlite3 as the database for Active Record
