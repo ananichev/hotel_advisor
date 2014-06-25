@@ -1,9 +1,13 @@
 HotelAdvisor::Application.routes.draw do
 
   resources :users
-  
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/signin',  to: 'sessions#new'
+  get '/signout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
-	
+  
+  root 'sessions#new'
+  
 	
 	
 	

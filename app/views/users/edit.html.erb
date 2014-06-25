@@ -1,5 +1,5 @@
-<%= provide(:title, "Sign up") %>
-<h1>Sign up</h1>
+<% provide(:title, "Edit user") %>
+<h1>Update your profile</h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -7,8 +7,8 @@
       <%= f.input :name %>
       <%= f.input :email %>
       <%= f.input :password %>
-      <%= f.input :password_confirmation, label: "Confirm password" %>
-      <%= f.button :submit, class: "btn btn-large btn-primary" %>
+      <%= f.input :password_confirmation, label: "Confirm Password" %>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
