@@ -40,6 +40,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :show do
     process :resize_to_limit => [800,800]
   end
+
+  version :avatar do
+    process :resize_to_limit => [150,100]
+  end
   
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

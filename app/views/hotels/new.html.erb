@@ -14,7 +14,8 @@
       <%= f.input  :city %>
       <%= f.input  :street %>
       <%= f.input  :breakfast_included %>
-      <%= f.input :image, as: :file %>
+      <%= f.input  :image, as: :file %>
+      <%= f.input  :image_cache, as: :hidden%>
       <%= f.button :submit, class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

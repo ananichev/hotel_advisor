@@ -1,5 +1,5 @@
 <%= provide(:title, "Edit advise") %>
-<h1>Edit advice</h1>
+<h1>Create advice</h1>
 
 <div class="row">
   <div class="span6 offset3">

@@ -1,5 +1,5 @@
-<%= provide(:title, "Edit advise") %>
-<h1>Edit advice</h1>
+<%= provide(:title, "New advice") %>
+<h1>Add new advice</h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -15,7 +15,7 @@
       <%= f.input  :street %>
       <%= f.input  :breakfast_included %>
       <%= f.input  :image, as: :file %>
-      <%= f.input  :image_cache, as: :hidden%>
+      <%= f.input  :image_cache, as: :hiden%>
       <%= f.button :submit, class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

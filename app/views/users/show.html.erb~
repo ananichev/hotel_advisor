@@ -6,7 +6,7 @@
       <h1>
         <%= @user.name %>
       </h1>
-      <div class="profile-avatar"><%= image_tag @user.avatar_url(:avatar) %></div>
+      <%= image_tag @user.avatar_url(:avatar) %>
       <p>My email:<span class ="profile"><%= @user.email %><span></p>
     </section>
   </aside>
