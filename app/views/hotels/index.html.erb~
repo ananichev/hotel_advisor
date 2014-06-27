@@ -1,0 +1,21 @@
+<%= provide(:title, "Advises")%>
+
+<h1>Hotels</h1> 
+
+<% @hotels.each do |f| %>
+  <h2><%= f.title %></h2>
+  <p><%= image_tag f.image_url(:thumb) %>
+  <ul>
+    <li>Star rating hotels - <%= f.star_rating %></li>
+    <li>Average price for room - <%= f.price_for_room %> $</li>
+    <li>Is breakfast included? - 
+  	  <% if f.breakfast_included? %>
+  	    <span>Yes</span>
+  	  <% else %>
+    	  <span>No</span>
+  	  <% end %>
+    </li>
+  </ul>
+  </p>
+  <%= link_to "Details", hotel_path(f) %>
+<% end %>

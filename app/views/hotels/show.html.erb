@@ -1,0 +1,27 @@
+<%= provide(:title, @hotel.title) %>
+
+
+<h1><%= @hotel.title %></h1>
+<div class="image"><%= image_tag @hotel.image_url(:show) %></div>
+<ul class="char">
+  <li>Star rating hotels - <%= @hotel.star_rating %></li>
+  <li>Average price for room - <%= @hotel.price_for_room %> $</li>
+  <li>Is breakfast included? - 
+  	<% if @hotel.breakfast_included? %>
+  	  <span>Yes</span>
+  	<% else %>
+  	  <span>No</span>
+  	<% end %>
+  </li>
+</ul>
+
+<h2>Description</h2>
+<p><%= @hotel.room_description %></p>
+
+<h3>Address</h3>
+<p> 
+  <%= @hotel.hotels_country %>,
+  <%= @hotel.state %>,
+  <%= @hotel.city %>,
+  <%= @hotel.street %> st. 
+</p>

@@ -8,6 +8,8 @@ HotelAdvisor::Application.routes.draw do
   
   root 'sessions#new'
   
+  resources :hotels
+  
 	
 	
 	
