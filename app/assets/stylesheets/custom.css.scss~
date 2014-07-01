@@ -167,6 +167,11 @@ input {
 
 .profile-avatar {
   margin-bottom:50px;
+  margin-top:20px;
+}
+
+#show-advice {
+  font-size: 2em;
 }
 
 

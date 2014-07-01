@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 	
   before_save { email.downcase! }
   before_create :create_remember_token
+
+  has_many  :hotels
   
   validates :name,     presence: true, length: { maximum: 50 }
   validates :email,    presence: true

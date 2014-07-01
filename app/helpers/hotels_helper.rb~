@@ -1,0 +1,9 @@
+module HotelsHelper
+
+  def userid(user)
+    if user.current_user
+      @hotel.user_id = user.id
+    end
+  end
+
+end

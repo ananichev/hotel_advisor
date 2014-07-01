@@ -25,5 +25,9 @@
   <%= @hotel.city %>,
   <%= @hotel.street %> st. 
 </p>
+  <% if @hotel.user == current_user %>
+    <p><%= link_to "Edit", edit_hotel_path(@hotel) %> | <%= link_to "Destroy", hotel_path(@hotel), method: "delete", data: { confirm: "Are you shure?" } %></p>
+  <% end %>
 
-<p><%= link_to "Edit", edit_hotel_path(@hotel) %> | <%= link_to "Destroy", hotel_path(@hotel), method: "delete", data: { confirm: "Are you shure?" } %></p>
+<%= link_to "Author: #{@hotel.user.name}", user_path(@hotel.user) %>
+

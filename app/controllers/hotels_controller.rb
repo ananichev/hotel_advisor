@@ -1,6 +1,8 @@
 class HotelsController < ApplicationController
   
   before_action :find_params, only: [:show, :edit, :update, :destroy]	
+  before_action :signed_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
 
   def index
   	@hotels = Hotel.all
@@ -14,7 +16,7 @@ class HotelsController < ApplicationController
   end
   
   def create
-  	@hotel = Hotel.new(hotel_params)
+  	@hotel = current_user.hotels.new(hotel_params)
   	if @hotel.save
   	  flash[:success] = "Advise success created!"
   	  redirect_to @hotel
@@ -43,7 +45,7 @@ class HotelsController < ApplicationController
   private
  
     def hotel_params
-      params.require(:hotel).permit(:title, :star_rating, :breakfast_included, :room_description, :price_for_room, :state, :city, :street, :hotels_country, :image)
+      params.require(:hotel).permit(:title, :star_rating, :breakfast_included, :room_description, :price_for_room, :state, :city, :street, :hotels_country, :image, :user_id)
     end
     
     def find_params

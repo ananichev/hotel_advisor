@@ -1,6 +1,9 @@
 <%= provide(:title, "Advises")%>
 
-<h1>Hotels</h1> 
+<h1>Hotels</h1>
+<% if signed_in? %>
+  <%= link_to "Create new advise", new_hotel_path %>
+<% end %>
 
 <% @hotels.each do |f| %>
   <h2><%= f.title %></h2>

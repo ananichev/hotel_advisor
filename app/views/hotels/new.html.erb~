@@ -1,6 +1,5 @@
 <%= provide(:title, "New advice") %>
 <h1>Add new advice</h1>
-
 <div class="row">
   <div class="span6 offset3">
     <%= simple_form_for(@hotel, :html => {:multipart => true}) do |f| %>
@@ -15,7 +14,8 @@
       <%= f.input  :street %>
       <%= f.input  :breakfast_included %>
       <%= f.input  :image, as: :file %>
-      <%= f.input  :image_cache, as: :hiden%>
+      <%= f.input  :image_cache, as: :hidden%>
+      <%= f.input  :user_id, collection: User.all, value_method: :id, label_method: :name %>
       <%= f.button :submit, class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
