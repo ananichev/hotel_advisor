@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
 
   has_many  :hotels
+  has_many  :comments
   
   validates :name,     presence: true, length: { maximum: 50 }
   validates :email,    presence: true

@@ -4,7 +4,7 @@ class CreateHotels < ActiveRecord::Migration
       t.string  :title
       t.integer :star_rating
       t.boolean :breakfast_included
-      t.text    :room_description
+      t.string  :room_description
       t.integer :price_for_room
       t.string  :state
       t.string  :city

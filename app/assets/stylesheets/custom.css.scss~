@@ -148,21 +148,21 @@ input {
 }
 
 .char{
-  font-style: italic;
-  font-size: 1.5em;
+  font-style:italic;
+  font-size:1.5em;
   li {
-  	padding: 10px;
-    line-height: 1;
+  	padding:10px;
+    line-height:1;
   }
 }
 
 .image {
-  text-align: center;
-  margin-bottom: 20px;
+  text-align:center;
+  margin-bottom:20px;
 }
 
 .profile {
-  color: blue;
+  color:blue;
 }
 
 .profile-avatar {
@@ -171,10 +171,24 @@ input {
 }
 
 #show-advice {
-  font-size: 2em;
+  font-size:2em;
+  text-align:center;
 }
 
+.comments {
+  font-size:1.8em;
+  font-style:bold;
+  padding-top:50px;
+  border-bottom:2px solid #ccc;
+}
 
+.after-comment-box {
+  padding-bottom: 40px;
+}
+
+.room-desc {
+  text-align:justify;
+}
 
 
 

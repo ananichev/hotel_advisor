@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630075056) do
+ActiveRecord::Schema.define(version: 20140703112128) do
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "hotel_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "rating"
+  end
 
   create_table "hotels", force: true do |t|
     t.string   "title"
     t.integer  "star_rating"
     t.boolean  "breakfast_included"
-    t.string   "room_description"
+    t.text     "room_description"
     t.integer  "price_for_room"
     t.string   "state"
     t.string   "city"

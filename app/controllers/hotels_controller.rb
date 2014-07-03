@@ -9,6 +9,7 @@ class HotelsController < ApplicationController
   end
   
   def show
+    
   end
   
   def new
@@ -40,6 +41,11 @@ class HotelsController < ApplicationController
   def destroy
   	@hotel.destroy
   	redirect_to 'index'
+  end
+  
+  def tophotels
+  	@hotels = Hotel.where("star_rating > 3").order("star_rating DESC").limit(5)
+  	render "index"
   end
   
   private

@@ -2,13 +2,19 @@ HotelAdvisor::Application.routes.draw do
 
   resources :users 
   resources :sessions, only: [:new, :create, :destroy]
-  get '/signin',  to: 'sessions#new'
-  get '/signout', to: 'sessions#destroy'
-  get '/signup', to: 'users#new'
+  get '/signin',     to: 'sessions#new'
+  get '/signout',    to: 'sessions#destroy'
+  get '/signup',     to: 'users#new'
   
-  root 'sessions#new'
-  
-  resources :hotels
+
+  root 'hotels#tophotels'
+
+
+  resources :hotels do
+    resources :comments, shallow: true
+    get :tophotels, on: :collection
+  end
+  get "hotels/:id/comments", to: "comments#create"
   	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

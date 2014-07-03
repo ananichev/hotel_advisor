@@ -1,12 +1,15 @@
 class HotelsController < ApplicationController
   
   before_action :find_params, only: [:show, :edit, :update, :destroy]	
+  before_action :signed_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
 
   def index
   	@hotels = Hotel.all
   end
   
   def show
+    
   end
   
   def new
@@ -38,6 +41,11 @@ class HotelsController < ApplicationController
   def destroy
   	@hotel.destroy
   	redirect_to 'index'
+  end
+  
+  def tophotels
+  	@hotels = Hotel.where("star_rating > 3").order("star_rating DESC")
+  	render "index"
   end
   
   private

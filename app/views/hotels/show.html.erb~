@@ -25,9 +25,39 @@
   <%= @hotel.city %>,
   <%= @hotel.street %> st. 
 </p>
-  <% if @hotel.current_user %>
+  <% if @hotel.user == current_user %>
     <p><%= link_to "Edit", edit_hotel_path(@hotel) %> | <%= link_to "Destroy", hotel_path(@hotel), method: "delete", data: { confirm: "Are you shure?" } %></p>
   <% end %>
 
 <%= link_to "Author: #{@hotel.user.name}", user_path(@hotel.user) %>
+
+<p class="comments">Comments</p>
+
+<% @hotel.comments.each do |f| %>
+  <p class="room-desc"><%= link_to f.user.name, user_path(f.user) %> rated: <%= f.rating %></p>
+  <p><%= f.body %></p>
+  <% if signed_in? && f.user == current_user %>  
+    <%= link_to "Destroy comment", comment_path(f), method: "delete" %>
+  <% end %>
+  <div class="after-comment-box"></div>
+<% end %>
+
+<% if signed_in? %>
+  <%= simple_form_for(:comment, url: {controller: 'comments', action: 'create'}) do |f| %>
+    <%= f.input :body, label: "Create new comment", as: :text %>
+    <%= f.input :rating, label: "Your rating", collection: 1..5, include_blank: false %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
 
