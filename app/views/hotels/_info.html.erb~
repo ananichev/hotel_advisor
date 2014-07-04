@@ -1,9 +1,0 @@
-  <li>Star rating hotels - <%= @hotel.star_rating %></li>
-  <li>Average price for room - <%= @hotel.price_for_room %> $</li>
-  <li>Is breakfast included? - 
-  	<% if @hotel.breakfast_included? %>
-  	  <span>Yes</span>
-  	<% else %>
-  	  <span>No</span>
-  	<% end %>
-  </li>
