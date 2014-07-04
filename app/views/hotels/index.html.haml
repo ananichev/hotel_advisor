@@ -1,0 +1,7 @@
+= provide(:title, "Advises")
+%h1 Hotels
+- if signed_in?
+  = link_to "Create new advise", new_hotel_path
+- @hotels.each do |f|
+  = render "index", f: f
+= will_paginate @hotels

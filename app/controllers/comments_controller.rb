@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   before_action :signed_in_user, only: [:new, :create]
-  before_action :correct_user,   only: :destroy
+  before_action :comment_user,   only: :destroy
 
   def new
   end
@@ -25,6 +25,11 @@ private
 
     def comment_params
       params.require(:comment).permit(:body, :user_id, :rating)
+    end
+
+    def comment_user
+      @comment = Comment.find(params[:id])
+      redirect_to(root_url) unless @comment.user == current_user 
     end
 
 end

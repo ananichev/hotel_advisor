@@ -9,13 +9,13 @@
       <% if @user.avatar_url %>
         <div class="profile-avatar"><%= image_tag @user.avatar_url(:avatar) %></div>
       <% else %>
-        <p>Here could be your avatar</p>
+        <%= image_tag("miss_avatar.png", alt: @user.name, width: 150, height: 200) %>
       <% end %>
       <p>My email:<span class ="profile"><%= @user.email %><span></p>
     </section>
   </aside>
 </div>
-<% if @user = current_user %>
+<% if @user == current_user %>
   <p id="show-advice">My advice:</p>
   <%= link_to "Create new advise", new_hotel_path %>
   <% if @user.hotels.empty? %>
@@ -25,20 +25,6 @@
   <p id="show-advice">His advice:</p>
 <% end %>
 <% @user.hotels.each do |f| %>
-  <h2><%= f.title %></h2>
-  <p><%= image_tag f.image_url(:thumb) %>
-    <ul>
-      <li>Star rating hotels - <%= f.star_rating %></li>
-      <li>Average price for room - <%= f.price_for_room %> $</li>
-      <li>Is breakfast included? - 
-  	    <% if f.breakfast_included? %>
-  	      <span>Yes</span>
-  	    <% else %>
-    	    <span>No</span>
-  	    <% end %>
-      </li>
-    </ul>
-  </p>
-<%= link_to "Details", hotel_path(f) %>
+  <%= render "/hotels/index", f: f %>  
 <% end %>
 

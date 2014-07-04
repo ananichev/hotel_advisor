@@ -5,7 +5,7 @@
     <%= simple_form_for(@hotel, :html => {:multipart => true}) do |f| %>
       <%= f.input  :title %>
       <%= f.input  :star_rating, collection: 1..5, include_blank: false %>
-      <%= f.input  :room_description %>
+      <%= f.input  :room_description, as: :text%>
       <%= f.input  :price_for_room %>
       <p>Address</p>
       <%= f.select :hotels_country, priority: ["Ukraine", "Russia", "Europe"] %>

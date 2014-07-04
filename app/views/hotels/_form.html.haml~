@@ -1,0 +1,15 @@
+<%= simple_form_for(@hotel, :html => {:multipart => true}) do |f| %>
+  <%= f.input  :title %>
+  <%= f.input  :star_rating, collection: 1..5, include_blank: false %>
+  <%= f.input  :room_description, as: :text%>
+  <%= f.input  :price_for_room %>
+  <p>Address</p>
+  <%= f.select :hotels_country, priority: ["Ukraine", "Russia", "Europe"] %>
+  <%= f.input  :state %>
+  <%= f.input  :city %>
+  <%= f.input  :street %>
+  <%= f.input  :breakfast_included %>
+  <%= f.input  :image, as: :file %>
+  <%= f.input  :image_cache, as: :hidden%>
+  <%= f.button :submit, class: "btn btn-large btn-primary" %>
+<% end %>

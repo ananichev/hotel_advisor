@@ -1,0 +1,26 @@
+= provide(:title, @hotel.title)
+%h1= @hotel.title
+.image
+  - if @hotel.image_url
+    = image_tag @hotel.image_url(:show)
+  - else
+    = image_tag("miss_image.jpg", alt: @hotel.title)
+%ul.char= render "info", g: @hotel
+%h2 Description
+%p.room-desc= @hotel.room_description
+%h3 Address
+%p
+  = @hotel.hotels_country
+  ,
+  
+  \#{@hotel.state},
+  
+  \#{@hotel.city},
+  
+  \#{@hotel.street} st.
+- if @hotel.user == current_user
+  %p
+    = link_to "Edit", edit_hotel_path(@hotel)
+    | #{link_to "Destroy", hotel_path(@hotel), method: "delete", data: { confirm: "Are you shure?" }}
+= link_to "Author: #{@hotel.user.name}", user_path(@hotel.user)
+= render "comment"

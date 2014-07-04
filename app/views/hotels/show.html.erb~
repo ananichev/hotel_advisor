@@ -2,7 +2,13 @@
 
 
 <h1><%= @hotel.title %></h1>
-<div class="image"><%= image_tag @hotel.image_url(:show) %></div>
+<div class="image">
+  <% if @hotel.image_url %>
+    <%= image_tag @hotel.image_url(:show) %>
+  <% else %>
+    <%= image_tag("miss_image.jpg", alt: @hotel.title) %>
+  <% end %>
+</div>
 <ul class="char">
   <li>Star rating hotels - <%= @hotel.star_rating %></li>
   <li>Average price for room - <%= @hotel.price_for_room %> $</li>
@@ -16,7 +22,7 @@
 </ul>
 
 <h2>Description</h2>
-<p><%= @hotel.room_description %></p>
+<p class="room-desc"><%= @hotel.room_description %></p>
 
 <h3>Address</h3>
 <p> 
@@ -31,24 +37,7 @@
 
 <%= link_to "Author: #{@hotel.user.name}", user_path(@hotel.user) %>
 
-<p class="comments">Comments</p>
-
-<% @hotel.comments.each do |f| %>
-  <p class="room-desc"><%= link_to f.user.name, user_path(f.user) %> rated: <%= f.rating %></p>
-  <p><%= f.body %></p>
-  <% if signed_in? && f.user == current_user %>  
-    <%= link_to "Destroy comment", comment_path(f), method: "delete" %>
-  <% end %>
-  <div class="after-comment-box"></div>
-<% end %>
-
-<% if signed_in? %>
-  <%= simple_form_for(:comment, url: {controller: 'comments', action: 'create'}) do |f| %>
-    <%= f.input :body, label: "Create new comment", as: :text %>
-    <%= f.input :rating, label: "Your rating", collection: 1..5, include_blank: false %>
-    <%= f.submit "Create", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
+<%= render "comment" %>
 
 
 

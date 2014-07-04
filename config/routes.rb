@@ -9,7 +9,7 @@ HotelAdvisor::Application.routes.draw do
 
   root 'hotels#tophotels'
 
-
+  
   resources :hotels do
     resources :comments, shallow: true
     get :tophotels, on: :collection

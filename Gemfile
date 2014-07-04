@@ -13,7 +13,7 @@ gem 'country_select'
 gem 'carrierwave'
 gem 'mini_magick', '3.5.0'
 gem 'rmagick'
-
+gem 'will_paginate'
 
 
 # Use sqlite3 as the database for Active Record

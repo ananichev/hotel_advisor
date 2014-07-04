@@ -1,0 +1,10 @@
+%li
+  Star rating hotels - #{g.star_rating}
+%li
+  Average price for room - #{g.price_for_room} $
+%li
+  Is breakfast included? -
+  - if g.breakfast_included?
+    %span Yes
+  - else
+    %span No

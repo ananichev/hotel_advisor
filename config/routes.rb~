@@ -7,11 +7,11 @@ HotelAdvisor::Application.routes.draw do
   get '/signup',     to: 'users#new'
   
 
-  root 'sessions#new'
+  root 'hotels#tophotels'
 
-
+  
   resources :hotels do
-    resources :comments, shallow: true
+    #resources :comments, shallow: true
     get :tophotels, on: :collection
   end
   get "hotels/:id/comments", to: "comments#create"

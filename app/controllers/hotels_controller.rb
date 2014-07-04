@@ -1,11 +1,12 @@
 class HotelsController < ApplicationController
   
-  before_action :find_params, only: [:show, :edit, :update, :destroy]	
+  before_action :find_params,    only: [:show, :edit, :update, :destroy]	
   before_action :signed_in_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :hotel_user,     only: [:edit, :update, :destroy]
 
   def index
   	@hotels = Hotel.all
+    @hotels = Hotel.paginate(per_page: 10, page: params[:page] )
   end
   
   def show
@@ -40,12 +41,11 @@ class HotelsController < ApplicationController
   
   def destroy
   	@hotel.destroy
-  	redirect_to 'index'
+  	redirect_to action: 'index'
   end
   
   def tophotels
   	@hotels = Hotel.where("star_rating > 3").order("star_rating DESC").limit(5)
-  	render "index"
   end
   
   private
@@ -56,6 +56,11 @@ class HotelsController < ApplicationController
     
     def find_params
       @hotel = Hotel.find(params[:id])
+    end
+
+    def hotel_user
+      @hotel = Hotel.find(params[:id])
+      redirect_to(root_url) unless @hotel.user == current_user 
     end
 	
 end
