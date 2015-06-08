@@ -10,9 +10,12 @@ class CommentsController < ApplicationController
     @hotel = Hotel.find(params[:hotel_id])
     @comment = @hotel.comments.new(comment_params)
     @comment.user = current_user
-    if @comment.save
+    if verify_recaptcha && @comment.save
       flash[:success] = "Comment success created!"
       redirect_to @hotel
+    else
+      flash[:error] = "Comment wasn't created!"
+      redirect_to @comment.hotel
     end
   end
 
