@@ -1,11 +1,11 @@
-%p.comments Comments
+%p.comments> Comments
 - @hotel.comments.each do |f|
   = link_to f.user.name, user_path(f.user)
   rated: #{f.rating}
-  %p= f.body
+  %p>= f.body
   - if f.user == current_user
     = link_to "Destroy comment", comment_path(f), method: "delete"
-  .after-comment-box
+  .after-comment-box>
 - if signed_in?
   = simple_form_for(:comment, url: {controller: 'comments', action: 'create'}) do |f|
     = f.input :body, label: "Create new comment", as: :text

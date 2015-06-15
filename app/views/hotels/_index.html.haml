@@ -1,7 +1,7 @@
-%h2= f.title
+%h2>= f.title
 - if f.image_url
-  %p= image_tag f.image_url(:thumb)
+  %p>= image_tag f.image_url(:thumb)
 - else
   = image_tag("miss_image.jpg", alt: f.title)
-%ul= render "/hotels/info", g: f
+%ul>= render "/hotels/info", g: f
 = link_to "Details", hotel_path(f)

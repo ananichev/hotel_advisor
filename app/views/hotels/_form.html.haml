@@ -3,7 +3,7 @@
   = f.input  :star_rating, collection: 1..5, include_blank: false
   = f.input  :room_description, as: :text
   = f.input  :price_for_room
-  %p Address
+  %p> Address
   = f.select :hotels_country, priority: ["Ukraine", "Russia", "Europe"]
   = f.input  :state
   = f.input  :city
