@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703112128) do
+ActiveRecord::Schema.define(version: 20150622071513) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20140703112128) do
     t.string   "image"
     t.integer  "user_id"
   end
+
+  add_index "hotels", ["room_description"], name: "index_hotels_on_room_description"
 
   create_table "users", force: true do |t|
     t.string   "name"

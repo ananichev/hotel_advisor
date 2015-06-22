@@ -1,0 +1,26 @@
+= provide(:title, "Search Results")
+%h1> Results
+- if signed_in?
+  = render 'search_input'
+- @results.records.each_with_hit do |record, hit|
+  %h2>= record.title
+  - if record.image_url
+    %p>= image_tag record.image_url(:thumb)
+  - else
+    = image_tag("miss_image.jpg", alt: record.title)
+  %ul>
+    %li>
+      Star rating hotels - #{record.star_rating}
+    %li>
+      Average price for room - #{record.price_for_room} $
+    %li>
+      Is breakfast included? -
+      - if record.breakfast_included?
+        %span> Yes
+      - else
+        %span> No
+    %li>
+      %p
+        Description: #{raw hit.highlight.room_description.last}
+  = link_to "Details", hotel_path(record)
+= will_paginate @results

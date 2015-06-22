@@ -15,6 +15,8 @@ gem 'mini_magick', '3.5.0'
 gem 'rmagick'
 gem 'will_paginate'
 gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
 
 # Use sqlite3 as the database for Active Record
@@ -69,7 +71,7 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
 group :production do
   gem 'pg', '0.15.1'

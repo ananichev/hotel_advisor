@@ -5,8 +5,7 @@ class HotelsController < ApplicationController
   before_action :hotel_user,     only: [:edit, :update, :destroy]
 
   def index
-    @hotels = Hotel.all
-    @hotels = Hotel.paginate(per_page: 10, page: params[:page] )
+    @hotels = Hotel.all.paginate(per_page: 10, page: params[:page] )
   end
   
   def show

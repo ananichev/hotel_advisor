@@ -8,14 +8,14 @@ HotelAdvisor::Application.routes.draw do
   
 
   root 'hotels#tophotels'
+  get 'hotels/search',       to: 'search#hotels_search'
 
-  
   resources :hotels do
     resources :comments, shallow: true
     get :tophotels, on: :collection
   end
   get "hotels/:id/comments", to: "comments#create"
-  	
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
